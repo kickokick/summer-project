@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 228234498}
   m_Layer: 10
   m_Name: ground
-  m_TagString: Untagged
+  m_TagString: ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -485,6 +485,7 @@ GameObject:
   - component: {fileID: 867998208}
   - component: {fileID: 867998207}
   - component: {fileID: 867998209}
+  - component: {fileID: 867998210}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -544,12 +545,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867998206}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cd8dbf29b65e90e4a98a99a6cdfe228e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 7
+  moveSpeed: 20
   groundDrag: 5
   jumpForce: 4
   jumpCooldown: 0.25
@@ -559,6 +560,23 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
+  orientation: {fileID: 407660165}
+--- !u!114 &867998210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867998206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23588d1792e28ed43a1532c2c7a0b3ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 20
+  jumpForce: 5
+  drag: 5
+  isOnGround: 1
   orientation: {fileID: 407660165}
 --- !u!1 &1010283003
 GameObject:
