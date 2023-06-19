@@ -7,6 +7,7 @@ public class testmovement : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     public float drag;
+    public float airDrag;
     public bool isOnGround = true;
     private float horizontalInput;
     private float forwardInput;
@@ -58,7 +59,7 @@ public class testmovement : MonoBehaviour
         }
         else
         {
-            rb.drag = 0;
+            rb.drag = airDrag;
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
