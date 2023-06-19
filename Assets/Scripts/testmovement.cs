@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class testmovement : MonoBehaviour
 {
+    //Variables and stuff
     public float moveSpeed;
     public float jumpForce;
     public float drag;
     public float airDrag;
+    public float crouchHeight;
+    public float crouchDrag;
     public bool isOnGround = true;
     private float horizontalInput;
     private float forwardInput;
@@ -62,12 +65,27 @@ public class testmovement : MonoBehaviour
             rb.drag = airDrag;
         }
 
+        //Jumping
         if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
 
         }
+
+        //Crouching
+        if (Input.GetKey("c") && isOnGround)
+        {   //Basically changes the objects size and then the rigidbody gravity does the rest, making the object fall to the ground
+            transform.localScale = new Vector3(1f,crouchHeight,1f);
+            rb.drag = crouchDrag;
+        }
+        else
+        {
+            transform.localScale = new Vector3(1f,1f,1f);
+        }
+
+
+        
 
     }
   
