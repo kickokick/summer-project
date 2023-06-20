@@ -987,8 +987,8 @@ GameObject:
   m_Component:
   - component: {fileID: 867998208}
   - component: {fileID: 867998207}
-  - component: {fileID: 867998209}
   - component: {fileID: 867998210}
+  - component: {fileID: 867998211}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1041,29 +1041,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &867998209
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867998206}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd8dbf29b65e90e4a98a99a6cdfe228e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 20
-  groundDrag: 5
-  jumpForce: 4
-  jumpCooldown: 0.25
-  airMultiplier: 0.4
-  jumpKey: 32
-  playerHeight: 3
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 1024
-  orientation: {fileID: 407660165}
 --- !u!114 &867998210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1085,6 +1062,18 @@ MonoBehaviour:
   sprintSpeed: 2
   isOnGround: 1
   orientation: {fileID: 407660165}
+--- !u!114 &867998211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867998206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9cb17562238570409a5f037bd6e22ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   doorTransform: {fileID: 1308083039}
 --- !u!1 &967621991
 GameObject:
