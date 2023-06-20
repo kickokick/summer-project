@@ -1082,6 +1082,7 @@ MonoBehaviour:
   airDrag: 3
   crouchHeight: 0.5
   crouchDrag: 7
+  sprintSpeed: 2
   isOnGround: 1
   orientation: {fileID: 407660165}
 --- !u!1 &1010283003

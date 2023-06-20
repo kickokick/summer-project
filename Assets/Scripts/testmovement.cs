@@ -11,6 +11,7 @@ public class testmovement : MonoBehaviour
     public float airDrag;
     public float crouchHeight;
     public float crouchDrag;
+    public float sprintSpeed;
     public bool isOnGround = true;
     private float horizontalInput;
     private float forwardInput;
@@ -82,6 +83,10 @@ public class testmovement : MonoBehaviour
         else
         {
             transform.localScale = new Vector3(1f,1f,1f);
+        }
+        if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey("w") && (!(Input.GetKey("s")))))
+        {
+            rb.AddForce(moveDir * moveSpeed * sprintSpeed * Time.deltaTime, ForceMode.Impulse);
         }
 
 
