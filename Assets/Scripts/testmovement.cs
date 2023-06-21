@@ -16,6 +16,8 @@ public class testmovement : MonoBehaviour
     private float horizontalInput;
     private float forwardInput;
     public Transform orientation;
+    public Transform playerTransform;
+    private RaycastHit hit;
     private Rigidbody rb;  
     // Start is called before the first frame update
     void Start()
@@ -77,13 +79,15 @@ public class testmovement : MonoBehaviour
         //Crouching
         if (Input.GetKey("c") && isOnGround)
         {   //Basically changes the objects size and then the rigidbody gravity does the rest, making the object fall to the ground
-            transform.localScale = new Vector3(1f,crouchHeight,1f);
+            playerTransform.localScale = new Vector3(1f,crouchHeight,1f);
             rb.drag = crouchDrag;
         }
-        else
+        //Raycasts to players regular height checking if they'res anything above them before letting them uncrouch
+        else if (!Physics.Raycast(playerTransform.position, playerTransform.TransformDirection(Vector3.up), out hit, 1f))
         {
-            transform.localScale = new Vector3(1f,1f,1f);
+            playerTransform.localScale = new Vector3(1f,1f,1f);
         }
+        //Sprinting
         if (Input.GetKey(KeyCode.LeftShift) && (Input.GetKey("w") && (!(Input.GetKey("s")))))
         {
             rb.AddForce(moveDir * moveSpeed * sprintSpeed * Time.deltaTime, ForceMode.Impulse);
