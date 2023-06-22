@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class doorFunc : MonoBehaviour
 {
-    public Transform doorTransform;
     private bool doorClosed = true;
     private bool isTrigger = false;
+    public Animator anim;
+
+    
     //Creates flags instead
     void OnTriggerEnter(Collider col)
     {
@@ -28,13 +30,12 @@ public class doorFunc : MonoBehaviour
         if ((isTrigger) && (Input.GetKeyDown("e")) && doorClosed)
         {
             print("Door opened");
-            doorTransform.position += new Vector3(5f, 0f, 0f);
+            anim.Play("DoorOpen");
             doorClosed = false;
         }
         else if ((isTrigger) && (Input.GetKeyDown("e") && (!doorClosed)))
         {
             print("Door closed");
-            doorTransform.position += new Vector3(-5f, 0f, 0f);
             doorClosed = true;
         }
     }
