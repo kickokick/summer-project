@@ -7,6 +7,7 @@ public class doorFunc : MonoBehaviour
     private bool doorClosed = true;
     private bool isTrigger = false;
     public Animator anim;
+    private bool repeatable = true;
 
     
     //Creates flags instead
@@ -27,15 +28,17 @@ public class doorFunc : MonoBehaviour
     //Needed to be able to use GetKeyDown
     void Update()
     {
-        if ((isTrigger) && (Input.GetKeyDown("e")) && doorClosed)
+        if ((repeatable) && (isTrigger) && (Input.GetKeyDown("e")) && doorClosed)
         {
             print("Door opened");
             anim.Play("DoorOpen");
             doorClosed = false;
+            repeatable = false;
         }
-        else if ((isTrigger) && (Input.GetKeyDown("e") && (!doorClosed)))
+        else if ((!isTrigger) && (!doorClosed))
         {
             print("Door closed");
+            anim.Play("DoorClose");
             doorClosed = true;
         }
     }
